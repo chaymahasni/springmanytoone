@@ -5,6 +5,8 @@ package com.example.springbootapp.model;
 
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -29,8 +31,7 @@ public class Tutorial {
 
     @Column(name = "description")
     private String description;
-  @ManyToOne(fetch = FetchType.LAZY , optional = false)
-
-private Type types;
+    @ManyToOne
+    private Type types;
 
 }

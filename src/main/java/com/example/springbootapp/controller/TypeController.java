@@ -91,7 +91,18 @@ public class TypeController {
         typeRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @DeleteMapping("/types")
+    public ResponseEntity<HttpStatus> deleteAllType() {
+        try {
+            typeRepository.deleteAll();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
+    }
+
+}
     /*
     @DeleteMapping("/tutorials/{tutorialId}/types")
     public ResponseEntity<HttpStatus> deleteAllTypesOfTutorial(@PathVariable(value = "tutorialId") Long tutorialId) {
@@ -103,4 +114,4 @@ public class TypeController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     */
-}
+
